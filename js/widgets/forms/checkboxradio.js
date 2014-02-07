@@ -188,8 +188,11 @@ $.widget( "mobile.checkboxradio", $.extend( {
 			return this.element;
 		}
 
-		return this.element.closest( "form, :jqmData(role='page'), :jqmData(role='dialog')" )
-			.find( "input[name='" + this.element[ 0 ].name + "'][type='" + this.inputtype + "']" );
+		return this.element
+			.closest( "form, :jqmData(role='page'), :jqmData(role='dialog')" )
+			.find( "input[name='" + this.element[ 0 ].name + "']" +
+				"[type='" + this.inputtype + "']" )
+			.add( this.element );
 	},
 
 	_updateAll: function() {
